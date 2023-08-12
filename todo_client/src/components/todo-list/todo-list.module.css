@@ -1,0 +1,35 @@
+.todos_item{
+    padding: 10px 15px;
+    display: flex; 
+    align-items: center;
+    cursor: pointer;
+    border-left: 2px solid #2196f3;
+    position: relative;
+}
+.todos_text {
+    margin: 0 20px;
+    line-height: 24px;
+    letter-spacing: 1.5px;
+    color: #444;
+}
+.todos_num{
+    font-size: 34px;
+}
+.todos_buttons{
+    margin-left: auto;
+    display: flex;
+    gap: 30px;
+}
+
+.todo_del {
+    margin-left: 20px;
+    line-height: 24px;
+    letter-spacing: 1.5px;
+    color: #c3a709cb;
+    text-decoration:line-through;
+    font-weight: 600;
+}
+.btn {
+    border:  none;
+    background: none;
+}
