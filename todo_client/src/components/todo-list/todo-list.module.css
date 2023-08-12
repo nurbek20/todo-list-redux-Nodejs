@@ -1,8 +1,7 @@
 .todos_item{
-    padding: 10px 15px;
+    padding: 5px 15px;
     display: flex; 
     align-items: center;
-    cursor: pointer;
     border-left: 2px solid #2196f3;
     position: relative;
 }
@@ -11,9 +10,10 @@
     line-height: 24px;
     letter-spacing: 1.5px;
     color: #444;
+    cursor: pointer;
 }
 .todos_num{
-    font-size: 34px;
+    font-size: 27px;
 }
 .todos_buttons{
     margin-left: auto;
@@ -28,6 +28,7 @@
     color: #c3a709cb;
     text-decoration:line-through;
     font-weight: 600;
+    cursor: pointer;
 }
 .btn {
     border:  none;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./todo-list.module.css";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -13,12 +13,16 @@ const TodoList = (props) => {
     startEditing,
     editingTodoId,
     updateTodoList,
-    todoList,
     setTodoList,
     deleteChange,
     completed,
   } = props;
   const isEditing = editingTodoId === props._id;
+  const [input, setInput] = useState(text);
+  const handleChange = () => {
+    setTodoList(input);
+  };
+  handleChange();
 
   return (
     <div className={styles.todos_item}>
@@ -30,9 +34,8 @@ const TodoList = (props) => {
             label="Great Todo"
             fullWidth
             variant="standard"
-            value={todoList}
-            placeholder={text}
-            onChange={(e) => setTodoList(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
           <Button onClick={updateTodoList} type="submit" variant="contained">
             Дабавить
@@ -50,12 +53,20 @@ const TodoList = (props) => {
             </div>
           )}
           <div className={styles.todos_buttons}>
-            <button style={{cursor:completed?"pointer":null}} className={styles.btn} disabled={completed?false:true}>
-            <CreateIcon onClick={completed?startEditing:null} />
+            <button
+              style={{ cursor: completed ? "pointer" : null }}
+              className={styles.btn}
+              disabled={completed ? false : true}
+            >
+              <CreateIcon onClick={completed ? startEditing : null} />
             </button>
 
-            <button style={{cursor:completed?null:"pointer"}} className={styles.btn} disabled={completed}>
-              <DeleteIcon onClick={completed?null:deleteTodoList} />
+            <button
+              style={{ cursor: completed ? null : "pointer" }}
+              className={styles.btn}
+              disabled={completed}
+            >
+              <DeleteIcon onClick={completed ? null : deleteTodoList} />
             </button>
           </div>
         </>

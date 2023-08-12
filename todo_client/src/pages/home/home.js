@@ -30,11 +30,13 @@ const Home = () => {
 
   const [todoList, setTodoList] = useState("");
   const updateTodoList = async (id) => {
-    await todoServices.updateTodoServices(id, {
-      text: todoList,
-      owner: userId,
-    });
-    setEditingTodoId(null);
+    if(todoList){
+      await todoServices.updateTodoServices(id, {
+        text: todoList,
+        owner: userId,
+      });
+      setEditingTodoId(null);
+    }
   };
 
 
@@ -71,7 +73,6 @@ const Home = () => {
               startEditing={() => startEditing(elem._id)}
               editingTodoId={editingTodoId}
               updateTodoList={() => updateTodoList(elem._id)}
-              todoList={todoList}
               setTodoList={setTodoList}
               deleteChange={()=>deleteChange(elem._id)}
             />
